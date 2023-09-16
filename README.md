@@ -27,7 +27,7 @@ Install my project with pip
 NOTE: Backend will be live on http://127.0.0.1:8000/
 ## API Reference
 
-#### Get all items
+#### Post sample image
 
 ```http
   POST /api/urine
