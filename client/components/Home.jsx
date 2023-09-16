@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Api from "../api/ApiConfig"
+import ChemicalData from "./ChemicalData";
 
 export const Home = (props) => {
   const [file, setFile] = useState(null);
-  const [data, setData] = useState("");
+  const [data, setData] = useState();
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -31,19 +32,6 @@ export const Home = (props) => {
     });
   };
 
-
-
-  // try {
-  //   const response = await axios.post('YOUR_API_ENDPOINT', formData, {
-  //     headers: {
-  //       'Content-Type': 'multipart/form-data',
-  //     },
-  //   });
-  //   console.log('Upload successful:', response.data);
-  // } catch (error) {
-  //   console.error('Error uploading file:', error);
-  // }
-
   return (
     <div className="auth-form-container">
       <h2>Urine Extractor</h2>
@@ -57,6 +45,11 @@ export const Home = (props) => {
         />
         <button type="submit">Upload</button>
       </form>
+      {data && (
+        <div>
+          <ChemicalData data={data} />
+        </div>
+      )}
     </div>
   );
 };
